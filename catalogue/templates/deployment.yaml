@@ -45,5 +45,5 @@ spec:
           failureThreshold: 2
           periodSeconds: 10
         envFrom:
-        - configMMapRef:
+        - configMapRef:
             name: catalogue
