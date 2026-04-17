@@ -24,6 +24,6 @@ spec:
       containers:
       - name: mysql
         image: {{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}
-    envFrom:
-    - secretRef:
-        name: mysql
+        envFrom:
+        - secretRef:
+            name: mysql
