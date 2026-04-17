@@ -12,7 +12,7 @@ spec:
   selector:
     matchLabels:
       project: robosho
-      tier: bacend
+      tier: backend
       comonent: user
   template:
     metadata:
