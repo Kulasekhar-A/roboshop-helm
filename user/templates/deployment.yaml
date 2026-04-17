@@ -24,25 +24,26 @@ spec:
       containers:
       - name: user
         image: {{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}
-      resources:
-        requests:
-          memory: "120Mi"
-          cpu: "100m"
-        limits:
-          memory: "120Mi"
-          cpu: "100m"
-      readinessProbe:
-        tcpSocket:
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-        initialDelaySeconds: 15
-      livenessProbe:
-        httpGet:
-          path: /health
-          port: 8080
-        failureThreshold: 2
-        periodSeconds: 10
-      envFrom:
-      - configMapRef:
-          name: user
+        imagePullPOlicy: Always
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "100m"
+          limits:
+            memory: "120Mi"
+            cpu: "100m"
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          failureThreshold: 2
+          periodSeconds: 10
+        envFrom:
+        - configMapRef:
+            name: user
