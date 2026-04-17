@@ -15,7 +15,7 @@ spec:
       tier:  backend
       component: cart
   template:
-    nametadata:
+    metadata:
       labels:
         project: roboshop
         tier: backend
