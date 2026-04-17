@@ -11,9 +11,9 @@ spec:
   replicas: {{ .Values.deployment.replicas }}
   selector:
     matchLabels:
-      project: robosho
+      project: roboshop
       tier: backend
-      comonent: user
+      component: user
   template:
     metadata:
       labels:
