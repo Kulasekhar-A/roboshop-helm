@@ -24,7 +24,7 @@ spec:
       containers:
       - name: user
         image: {{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}
-        imagePullPOlicy: Always
+        imagePullPolicy: Always
         resources:
           requests:
             memory: "120Mi"
