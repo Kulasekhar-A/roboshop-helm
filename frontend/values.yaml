@@ -1,0 +1,4 @@
+deployment:
+  replicas: 1
+  imageName: "annurukulasekhar/frontend"
+  imageVersion: "1.4.0"

@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: roboshop
+  labels:
+    project: roboshop
+    tier: frontend
+    component: frontend
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      project: roboshop
+      tier: frontend
+      component: frontend
+  template:
+    metadata:
+      labels:
+        project: roboshop
+        tier: frontend
+        component: frontend
+    spec:
+      volumes:
+      - name: nginx-conf
+        configMap:
+          name: frontend
+      containers:
+      - name: frontend
+        image: {{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}
+        resources:
+          requests:
+            memory: "120Mi"
+            cpu: "100m"
+          limits:
+            memory: "120Mi"
+            cpu: "100m"
+        readinessProbe:
+          tcpSocket:
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+          initialDelaySeconds: 15
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          failureThreshold: 2
+          periodSeconds: 10
+        volumeMounts:
+        - name: nginx-conf
+          mountPath: "/etc/nginx/nginx.conf"
+          subPath: nginx.conf
+          readOnly: true
