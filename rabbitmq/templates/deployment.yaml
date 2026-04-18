@@ -24,6 +24,6 @@ spec:
       containers:
       - name: rabbitmq
         image: {{ .Values.deployment.imageName }}:{{ .Values.deployment.imageVersion }}
-      envFrom:
-      - secretRef:
-          name: rabbitmq
+        envFrom:
+        - secretRef:
+            name: rabbitmq
