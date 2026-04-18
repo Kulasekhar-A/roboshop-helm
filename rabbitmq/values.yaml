@@ -1,0 +1,7 @@
+secret:
+  RABBITMQ_DEFAULT_USER: "cm9ib3Nob3A="
+  RABBITMQ_DEFAULT_PASS: "cm9ib3Nob3AxMjM="
+deployment:
+  replicas: 1
+  imageName: "rabbitmq"
+  imageVersion: "3"
